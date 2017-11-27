@@ -1,0 +1,7 @@
+{
+  "rules": {
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  }
+}
