@@ -1,26 +1,40 @@
 
 const path = require('path');
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const extractPlugin = new ExtractTextPlugin({
+    filename: 'main.css'
+});
+
 module.exports = {
-    entry: './client/index.js',
+    entry: './src/index.js',
     output: {
-        path: path.resolve('dist'),
-        filename: 'index_bundle.js'
+        path: path.resolve('public'),
+        filename: 'bundle.js'
     },
     module: {
-        loaders: [
+        rules: [
             // { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             // { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
-            {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'react-hot-loader!babel-loader'
-            },
+            // {
+            //     test: /\.jsx?$/,
+            //     exclude: /node_modules/,
+            //     loader: 'babel-loader'
+            // },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'eslint-loader'
+                loader: ['babel-loader']
+            },
+            {
+                test: /\.scss$/,
+                exclude: /node_nodes/,
+                use: extractPlugin.extract({
+                    use: ['css-loader', 'sass-loader', 'postcss-loader']
+                })
             }
+
         ]
     }
 };
