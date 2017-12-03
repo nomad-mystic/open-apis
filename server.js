@@ -7,7 +7,7 @@ server.use(express.json());
 server.use(express.urlencoded());
 
 // This is for all public static files we are going to serve
-server.use(express.static('./public/'));
+server.use(express.static('./public'));
 
 
 // This is the root of the whole project
