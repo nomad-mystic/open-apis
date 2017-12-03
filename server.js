@@ -22,3 +22,5 @@ server.listen(8000, 'localhost', () => {
     console.log(`The server is listening on post 8000`);
 
 });
+
+module.exports = server;

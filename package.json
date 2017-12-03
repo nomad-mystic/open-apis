@@ -4,7 +4,7 @@
   "description": "This will display a list of API for easy retrieval.",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "./node_modules/.bin/mocha  --recursive --reporter spec --compilers js:babel-core/register",
     "webpack": "webpack -wd",
     "start": "babel-node server.js --presets es2015"
   },
@@ -38,6 +38,8 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
+    "chai": "*",
+    "chai-http": "^3.0.0",
     "css-loader": "^0.28.7",
     "eslint": "^4.12.0",
     "eslint-config-airbnb": "^16.1.0",
@@ -46,6 +48,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
     "extract-text-webpack-plugin": "^3.0.2",
+    "mocha": "*",
     "node-sass": "^4.7.2",
     "nodemon": "^1.12.1",
     "postcss-loader": "^2.0.9",
