@@ -10,19 +10,18 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: './src/index.js',
     output: {
-        // path: __dirname,
         path: path.resolve('public'),
         filename: 'bundle.js',
         publicPath: './public/assets/'
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['es2015', 'react']
+                    presets: ['es2015', 'react', 'stage-0']
                 }
             }
             // ,

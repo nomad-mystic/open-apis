@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header';
 
 export default class App extends Component {
     constructor(props) {
@@ -9,7 +10,7 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                <h1>Testing React 2</h1>
+                <Header title='Find Your Open API Here'/>
             </div>
 
         )
