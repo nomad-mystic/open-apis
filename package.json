@@ -4,7 +4,7 @@
   "description": "This will display a list of API for easy retrieval.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha  --recursive --reporter spec --compilers js:babel-core/register",
+    "test": "./node_modules/.bin/mocha  --recursive --require babel-core/register",
     "webpack": "webpack -wd",
     "start": "babel-node server.js --presets es2015"
   },
