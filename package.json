@@ -28,6 +28,7 @@
   "homepage": "https://github.com/nomad-mystic/open-apis#readme",
   "devDependencies": {
     "@types/express": "^4.0.39",
+    "autoprefixer": "^7.2.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -51,12 +52,14 @@
     "node-sass": "^4.7.2",
     "nodemon": "^1.12.1",
     "postcss-loader": "^2.0.9",
+    "precss": "^2.0.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
     "sync-exec": "^0.6.2",
     "webpack": "^3.9.1"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
     "express": "^4.16.2",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",

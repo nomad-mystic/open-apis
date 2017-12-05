@@ -1,4 +1,5 @@
 import express from 'express';
+import 'bootstrap';
 
 const app = express();
 
