@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+// import 'fs';
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -12,7 +13,7 @@ module.exports = {
     output: {
         path: path.resolve('public'),
         filename: 'bundle.js',
-        publicPath: './public/assets/'
+        publicPath: './public/'
     },
     module: {
         rules: [
@@ -25,26 +26,51 @@ module.exports = {
                 }
             },
 			{
-				test: /\.(scss)$/,
-				use: [{
-					loader: 'style-loader', // inject CSS to page
-				}, {
-					loader: 'css-loader', // translates CSS into CommonJS modules
-				}, {
-					loader: 'postcss-loader', // Run post css actions
-					options: {
-						plugins: function () { // post css plugins, can be exported to postcss.config.js
-							return [
-								require('precss'),
-								require('autoprefixer')
-							];
-						}
-					}
-				}, {
-					loader: 'sass-loader' // compiles SASS to CSS
-				}]
+				test: /\.scss$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: [
+						{
+							loader: 'css-loader',
+							options: {
+								sourceMap: true,
+							}
+						},
+						{
+							loader: 'postcss-loader', // Run post css actions
+								options: {
+									plugins: function () { // post css plugins, can be exported to postcss.config.js
+										return [
+											require('precss'),
+											require('autoprefixer'),
+										];
+									},
+									sourceMap: true,
+								}
+						},
+						{
+							loader: 'sass-loader',
+							options: {
+								sourceMap: true,
+							},
+						},
+					],
+					publicPath: './public/assets/css/',
+				}),
 			},
-
-        ]
-    }
+        ],
+    },
+	plugins: [
+		new webpack.ProvidePlugin({
+			$: 'jquery',
+			jQuery: 'jquery',
+			'window.jQuery': 'jquery',
+			'Tether': 'tether',
+			'Popper': 'popper.js',
+			// In case you imported plugins individually, you must also require them here:
+			// Util: "exports-loader?Util!bootstrap/js/dist/util",
+			// Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown"
+		}),
+		new ExtractTextPlugin('assets/css/styles.css'),
+	],
 };
