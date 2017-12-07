@@ -1,26 +1,26 @@
 import express from 'express';
 
-const server = express();
+const app = express();
 
 // This is now built in middleware from express
-server.use(express.json());
-server.use(express.urlencoded());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 // This is for all public static files we are going to serve
-server.use(express.static('./public'));
+app.use(express.static('./public'));
 
 
 // This is the root of the whole project
-server.get('/', (req, res) => {
+app.get('/', (req, res) => {
 
     res.send('Hello World');
 
 });
 
-server.listen(8000, 'localhost', () => {
+const server = app.listen(8000, 'localhost', () => {
 
     console.log(`The server is listening on post 8000`);
-
+	// console.log('5416932912');
 });
 
 module.exports = server;

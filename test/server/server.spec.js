@@ -13,6 +13,10 @@ chai.use(chaiHttp);
 const server = require(process.cwd() + '/server');
 
 describe('Root Server Path', function() {
+	after(function (done) {
+		server.close(done);
+	});
+
 	it('Should return 200 status', function(done) {
 		chai.request(server)
 			.get('/')

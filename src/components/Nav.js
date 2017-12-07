@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+
+import Alphabet from './Alphabet';
 /**
  * @summary This is where the navigation will live
  * @author Keith Murphy - nomadmystics@gmail.com
@@ -10,8 +12,13 @@ import PropTypes from 'prop-types';
 export default class Nav extends Component {
 	constructor(props) {
 		// https://reactjs.org/docs/react-component.html#constructor
-
 		super(props);
+		const alphabet = 'ABCDEFGHIJKMLOPQURSTUVWXYZ';
+
+		this.state = {
+				alphabet: alphabet
+		};
+
 	}
 	componentWillMount() {
 		// https://reactjs.org/docs/react-component.html#componentwillmount
@@ -49,7 +56,7 @@ export default class Nav extends Component {
 		return (
 			<div>
 				<h2>Hello React</h2>
-				<p>{Math.random()}</p>
+				<Alphabet alphabet={this.state.alphabet} />
 			</div>
 		);
 	}
