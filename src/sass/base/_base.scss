@@ -1,0 +1,15 @@
+* {
+	box-sizing: border-box;
+}
+
+// For base HTML elements
+body {
+	font-size: 16px;
+}
+
+
+// For Bootstrap overrides
+.container {
+	padding-right: 0;
+	padding-left: 0;
+}

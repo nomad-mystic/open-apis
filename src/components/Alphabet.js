@@ -12,7 +12,7 @@ const Alphabet = ({  alphabet  }) => {
 
 	const alphaArray = createAlphaArray(alphabet);
 	return (
-		<div>
+		<div className='alphabet'>
 			{
 				alphaArray.map((letter, i) => {
 					return <Letter letter={letter} key={i}/>

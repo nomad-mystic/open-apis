@@ -1,0 +1,42 @@
+
+$letter-color: #000000;
+$letter-hover-color: #ffffff;
+
+$letter-background: #ffffff;
+$letter-hover-background: #000000;
+
+
+.alphabet {
+	display: flex;
+	flex-direction: row;
+	width: 90vw;
+	max-width: 90vw;
+	margin: 0 auto;
+	justify-content: center;
+
+	.letter {
+		margin: 0 auto;
+		cursor: pointer;
+		display: inline-block;
+		color: $letter-color;
+		background: $letter-background;
+		//padding: .5em;
+		border-radius: 2px;
+		overflow: hidden;
+		min-width: 0;
+		transition: all 1s;
+		&:hover {
+			color: $letter-hover-color;
+			background: $letter-hover-background;
+		}
+		&focus {
+
+		}
+		p {
+			padding: .5em;
+			margin: 0 auto;
+		}
+	}
+}
+
+

@@ -1,31 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block; }
-body {
-  line-height: 1; }
-ol, ul {
-  list-style: none; }
-blockquote, q {
-  quotes: none; }
-blockquote:before, blockquote:after, q:before, q:after {
-  content: '';
-  content: none; }
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-header h2 {
-  color: green; }
 /*!
  * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
@@ -5781,5 +5753,74 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 @media print {
   .hidden-print {
     display: none !important; } }
-h1 {
-  color: blue; }
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+body {
+  line-height: 1; }
+ol, ul {
+  list-style: none; }
+blockquote, q {
+  quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+body {
+  font-size: 16px; }
+.container {
+  padding-right: 0;
+  padding-left: 0; }
+#root {
+  max-width: 100vw;
+  width: 100%;
+  margin: 0 auto; }
+header h2 {
+  color: green; }
+.alphabet {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 90vw;
+  max-width: 90vw;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+.alphabet .letter {
+    margin: 0 auto;
+    cursor: pointer;
+    display: inline-block;
+    color: #000000;
+    background: #ffffff;
+    border-radius: 2px;
+    overflow: hidden;
+    min-width: 0;
+    -webkit-transition: all 1s;
+    transition: all 1s; }
+.alphabet .letter:hover {
+      color: #ffffff;
+      background: #000000; }
+.alphabet .letter p {
+      padding: .5em;
+      margin: 0 auto; }

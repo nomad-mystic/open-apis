@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
  * @author Keith Murphy - nomadmystics@gmail.com
  */
 
-const Letter = ({  letter  }) => {
+const Letter = ({ letter }) => {
 	return (
-		<div>
+		<div className='letter'>
 			<p>{letter}</p>
 		</div>
 	);
