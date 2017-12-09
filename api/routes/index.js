@@ -14,7 +14,7 @@ import {
  */
 
 router.get('/category/:category', (req, res, next) => {
-		console.log('apis called');
+		// console.log('apis called');
 		next();
 	}, getCategory);
 

@@ -6,7 +6,7 @@ let collection;
 
 export const getCategory = (req, res, next) => {
 
-	console.log(req.params.category);
+	// console.log(req.params.category);
 	/**
 	 * @summary Connect to the db server and get collection
 	 * @param {string} url [The base url for this project]
@@ -30,8 +30,10 @@ export const getCategory = (req, res, next) => {
 				throw new Error(`There was an error in the open api toArray function ${err.message}`);
 			}
 
-			console.log(apis);
+			// console.log(apis);
 			res.send(apis);
+
+			// Close the client connection
 			client.close();
 		});
 	});
