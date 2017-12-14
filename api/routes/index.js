@@ -14,12 +14,11 @@ import {
  */
 
 router.get('/category/:category', (req, res, next) => {
-		// console.log('apis called');
-		// next();
 
 		const whatToGet = {'Category': req.params.category};
+		const collectionToUse = 'main';
 
-		getAPIData(req, res, next, whatToGet);
+		getAPIData(req, res, next, whatToGet, collectionToUse);
 });
 
 /**
@@ -31,21 +30,23 @@ router.get('/category/:category', (req, res, next) => {
 router.get('/name/:name', (req, res, next) => {
 
 	console.log(req.params.name);
-	const whatToFind = {'API': req.params.name};
+	const whatToFind = {'name': req.params.name};
+	const collectionToUse = 'names';
 
-	getAPIData(req, res, next, whatToFind);
+	getAPIData(req, res, next, whatToFind, collectionToUse);
 
 });
+
 
 router.get('/all', (req, res, next) => {
 
 	const whatToFind = {};
-
+	const collectionToUse = 'main';
 	/**
 	 * @summary This will get all data points from database
 	 */
 
-	getAPIData(req, res, next, whatToFind);
+	getAPIData(req, res, next, whatToFind, collectionToUse);
 
 });
 
