@@ -4,7 +4,7 @@ const url = 'mongodb://localhost:27017/open_api';
 
 let collection;
 
-export const getAPIData = (req, res, next, whatToFind) => {
+export const getAPIData = (req, res, next, whatToFind, collectionToUse) => {
 
 	// console.log(req.params.category);
 	/**
@@ -22,7 +22,7 @@ export const getAPIData = (req, res, next, whatToFind) => {
 		const db = client.db('open_api');
 
 		// Get the collection
-		collection = db.collection('main');
+		collection = db.collection(collectionToUse);
 
 		// Get the objects
 		collection.find(whatToFind).toArray((err, apis) => {
