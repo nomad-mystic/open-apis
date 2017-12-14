@@ -4,7 +4,7 @@ const url = 'mongodb://localhost:27017/open_api';
 
 let collection;
 
-export const getCategory = (req, res, next) => {
+export const getAPIData = (req, res, next, whatToFind) => {
 
 	// console.log(req.params.category);
 	/**
@@ -25,7 +25,8 @@ export const getCategory = (req, res, next) => {
 		collection = db.collection('main');
 
 		// Get the objects
-		collection.find({"Category": req.params.category}).toArray((err, apis) => {
+		collection.find(whatToFind).toArray((err, apis) => {
+
 			if (err) {
 				throw new Error(`There was an error in the open api toArray function ${err.message}`);
 			}
