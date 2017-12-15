@@ -1,4 +1,5 @@
 import express from 'express';
+import { serverConfig } from './config/serverConfig';
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.get('/', (req, res) => {
 
 });
 
-const server = app.listen(8000, 'localhost', () => {
+const server = app.listen(serverConfig.PORT, serverConfig.HOST, () => {
 
     console.log(`The server is listening on post 8000`);
 	// console.log('5416932912');
