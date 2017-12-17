@@ -25,8 +25,8 @@ app.get('/', (req, res) => {
 
 const server = app.listen(serverConfig.PORT, serverConfig.HOST, () => {
 
-    console.log(`The server is listening on post 8000`);
-	// console.log('5416932912');
+    console.log(`The server is listening on http://${serverConfig.HOST}:${serverConfig.PORT}`);
+
 });
 
 module.exports = server;
