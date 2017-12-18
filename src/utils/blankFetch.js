@@ -3,11 +3,11 @@
  * @type {{getFetch: function(*)}}
  */
 
-const blankFetch = {
+export const blankFetch = {
 
     getFetch: (endpoint) => {
 
-        fetch(endpoint)
+        return fetch(endpoint)
             .then((res) => res.json())
             .catch((err) => {
                throw new Error(`There was and error in your getFetch ${err.message}`);
@@ -15,6 +15,6 @@ const blankFetch = {
 
     }
 };
-blankFetch.getFetch('../json/names.json');
+// blankFetch.getFetch('../json/names.json');
 
-// export default blankFetch;
+// export blankFetch;

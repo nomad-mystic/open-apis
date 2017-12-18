@@ -29,10 +29,11 @@ router.get('/category/:category', (req, res, next) => {
 
 router.get('/name/:name', (req, res, next) => {
 
-	// console.log(req.params.name);
-	const whatToFind = {'name': req.params.name};
+	console.log(req.params.name);
+	const whatToFind = (req.params.name !== 'names') ? {'name': req.params.name} : {};
 	const collectionToUse = 'names';
 
+	console.log(whatToFind);
 	getAPIData(req, res, next, whatToFind, collectionToUse);
 
 });
