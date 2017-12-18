@@ -1,0 +1,11 @@
+[
+  {
+    "Auth": "apiKey"
+  },
+  {
+    "Auth": "OAuth"
+  },
+  {
+    "Auth": "X-Mashape-Key"
+  }
+]
