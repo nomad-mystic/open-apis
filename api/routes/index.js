@@ -33,7 +33,7 @@ router.get('/name/:name', (req, res, next) => {
 	const whatToFind = (req.params.name !== 'names') ? {'name': req.params.name} : {};
 	const collectionToUse = 'names';
 
-	console.log(whatToFind);
+	// console.log(whatToFind);
 	getAPIData(req, res, next, whatToFind, collectionToUse);
 
 });
