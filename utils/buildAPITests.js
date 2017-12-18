@@ -4,37 +4,50 @@ let fileToRead = '';
 let fileToWrite = '';
 let testFilename = '';
 let type = '';
-// Find which file to read
+
+
+/**
+ * @summary Find which file to read
+ * @example --read=names.json
+ */
+
 for (let arg = 0; arg < process.argv.length; arg++) {
-	// console.log(process.argv[arg]);
-	if (process.argv[arg] === 'entries') {
-		fileToRead = process.cwd() + '/../json/entries.json';
-	}
-	if (process.argv[arg] === 'name') {
-		fileToRead = process.cwd() + '/../json/names.json';
-		type = process.argv[arg];
+    if (process.argv[arg].includes('--read=')) {
+        let file = process.argv[arg].substring(7);
+
+        fileToRead = process.cwd() + `/json/${file}`;
+    }
+}
+
+
+/**
+ * @summary Find which file to write to
+ * @example --spec=api.category.spec.js
+ */
+
+for (let arg = 0; arg < process.argv.length; arg++) {
+	if (process.argv[arg].includes('--spec=')) {
+		let file = process.argv[arg].substring(7);
+
+		fileToWrite = process.cwd() + `/test/api/${file}`;
 	}
 }
 
-// Find which file to write to
-for (let arg = 0; arg < process.argv.length; arg++) {
-	if (process.argv[arg].includes('spec')) {
-		fileToWrite = process.cwd() + `/../test/api/${process.argv[arg]}`;
-	}
+/**
+ * @summary Find which file to write to
+ * @example --type=name|category
+ */
+
+for (let t = 0; t < process.argv.length; t++) {
+    if (process.argv[t].includes('--type=')) {
+        type = process.argv[t].substring(7);
+    }
 }
 
-console.log(process.argv);
+console.log(fileToRead);
 console.log(fileToWrite);
 console.log(type);
 
-
-// Find which file to write
-for (let r = 0; r < process.argv.length; r++) {
-	// console.log(process.argv[arg]);
-	if (process.argv[r] === 'spec') {
-		fileToWrite = process.cwd() + `/../test/api/${testFilename}`;
-	}
-}
 
 // Make sure the file exists
 fs.stat(fileToRead, (err, stats) => {
@@ -95,9 +108,36 @@ fs.stat(fileToRead, (err, stats) => {
 					});
 				});`;
 			});
-			// console.log(newArray);
-			//
-			fs.writeFile(fileToWrite, newTest, (err) => {
+
+			const baseTestfFile = `
+				// Libraries
+				const chai = require('chai');
+				const chaiHttp = require('chai-http');
+				const expect = chai.expect;
+				
+				// Middleware
+				chai.use(chaiHttp);
+				
+				// My modules
+				const server = require(process.cwd() + '/server');
+				
+				/**
+				 * @summary Building all test for the category endpoints
+				 * @author Keith Murphy - nomadmystics@gmail.com
+				 */
+				
+				describe('This is for the category endpoints', function() {
+					after(function() {
+						server.close();
+					});
+					
+					${newTest}
+					
+				});
+			`;
+
+			// Write base and new tests to file 
+			fs.writeFile(fileToWrite, baseTestfFile, (err) => {
 				if (err) {
 					throw new Error(`There was an error in the fs.write function ${err.message} and ${err.code}`);
 				} else {
