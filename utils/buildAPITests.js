@@ -13,7 +13,7 @@ let type = '';
 
 for (let arg = 0; arg < process.argv.length; arg++) {
     if (process.argv[arg].includes('--read=')) {
-        let file = process.argv[arg].substring(7);
+        let file = process.argv[arg].substring(8);
 
         fileToRead = process.cwd() + `/json/${file}`;
     }
@@ -68,14 +68,15 @@ fs.stat(fileToRead, (err, stats) => {
 			// let newArray = JSON.parse(data).map((name, i) => {
 			JSON.parse(data).forEach((item) => {
 
-				console.log(item.name);
+				console.log(item[type]);
+				console.log(item[type]);
 				// console.log(name.name);
 
 
-				newTest += `describe('${item.name} endpoint', function () {
+				newTest += `describe('${item[type]} endpoint', function () {
 					it('Should have a status of 200', function (done) {
 						chai.request(server)
-							.get('/api/${type}/${item.name}')
+							.get('/api/${type}/${item[type]}')
 							.end(function (err, res) {
 								expect(res).to.have.status(200);
 								done();
@@ -83,7 +84,7 @@ fs.stat(fileToRead, (err, stats) => {
 					});
 					it('Should have no errors', function (done) {
 						chai.request(server)
-							.get('/api/${type}/${item.name}')
+							.get('/api/${type}/${item[type]}')
 							.end(function (err, res) {
 								expect(err).to.be.null;
 								done();
@@ -92,7 +93,7 @@ fs.stat(fileToRead, (err, stats) => {
 					});
 					it('Should return JSON', function (done) {
 						chai.request(server)
-							.get('/api/${type}/${item.name}')
+							.get('/api/${type}/${item[type]}')
 							.end(function (err, res) {
 								expect(res).to.be.json;
 								done();
@@ -100,7 +101,7 @@ fs.stat(fileToRead, (err, stats) => {
 					});
 					it('Should have headers', function (done) {
 						chai.request(server)
-							.get('/api/${type}/${item.name}')
+							.get('/api/${type}/${item[type]}')
 							.end(function (err, res) {
 								expect(res).to.have.headers;
 								done();
@@ -126,7 +127,7 @@ fs.stat(fileToRead, (err, stats) => {
 				 * @author Keith Murphy - nomadmystics@gmail.com
 				 */
 				
-				describe('This is for the category endpoints', function() {
+				describe('This is for the ${type} endpoints', function() {
 					after(function() {
 						server.close();
 					});
