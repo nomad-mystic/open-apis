@@ -30,13 +30,31 @@ router.get('/category/:category', (req, res, next) => {
 router.get('/name/:name', (req, res, next) => {
 
 	// console.log(req.params.name);
-	const whatToFind = (req.params.name !== 'names') ? {'name': req.params.name} : {};
+	const whatToFind = (req.params.name !== 'all') ? {'name': req.params.name} : {};
 	const collectionToUse = 'names';
 
 	// console.log(whatToFind);
 	getAPIData(req, res, next, whatToFind, collectionToUse);
 
 });
+
+/**
+ * @summary Get APIs by Auth type
+ * @param {string} http://localhost:8000/api/auth/apiKey
+ * @param {callback}
+ */
+
+router.get('/auth/:auth', (req, res, next) => {
+
+    // console.log(req.params.auth);
+    const whatToFind = (req.params.auth !== 'all') ? {'auth': req.params.auth} : {};
+    const collectionToUse = 'auth';
+
+    // console.log(whatToFind);
+    getAPIData(req, res, next, whatToFind, collectionToUse);
+
+});
+
 
 
 router.get('/all', (req, res, next) => {
