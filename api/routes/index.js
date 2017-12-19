@@ -2,9 +2,8 @@ import express from 'express';
 
 const router = express.Router();
 
-import {
-	getAPIData
-} from '../controllers/controllers'
+import { getAPIData } from '../controllers/getController'
+import { aggregateSample } from "../controllers/aggregationController";
 
 
 /**
@@ -57,17 +56,33 @@ router.get('/auth/:auth', (req, res, next) => {
 });
 
 
+/**
+ * @summary Get all objects
+ */
 
 router.get('/all', (req, res, next) => {
-
 	const whatToFind = {};
 	const collectionToUse = 'main';
+
 	/**
 	 * @summary This will get all data points from database
 	 */
 
 	getAPIData(req, res, next, whatToFind, collectionToUse);
-
 });
+
+
+/**
+ * @summary Get a sample of objects
+ */
+
+router.get('/sample/:size', (req, res, next) => {
+	const size = Number(req.params.size);
+	const whatToFind = [{ $sample: { size: size } }];
+	const collectionToUse = 'main';
+
+	aggregateSample(req, res, next, whatToFind, collectionToUse);
+});
+
 
 export default router;
