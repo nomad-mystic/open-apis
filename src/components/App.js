@@ -12,7 +12,7 @@ export default class App extends Component {
         return (
             <div>
                 <Header title='Find Your Open API Here'/>
-                <Search fetchData={{}}/>
+                <Search fetchData={[]}/>
             </div>
 
         )

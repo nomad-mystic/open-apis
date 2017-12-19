@@ -15,10 +15,11 @@ import {
 
 router.get('/category/:category', (req, res, next) => {
 
-		const whatToGet = {'Category': req.params.category};
-		const collectionToUse = 'main';
-
-		getAPIData(req, res, next, whatToGet, collectionToUse);
+		// const whatToGet = {'Category': req.params.category};
+    	const whatToFind = (req.params.category !== 'all') ? {'Category': req.params.category} : {};
+		const collectionToUse = 'category';
+		// console.log(whatToFind);
+		getAPIData(req, res, next, whatToFind, collectionToUse);
 });
 
 /**

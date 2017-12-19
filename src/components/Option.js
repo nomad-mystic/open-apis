@@ -5,14 +5,19 @@ import React, { Component } from 'react';
 export class Option extends Component {
     constructor(props) {
         super(props);
-        // this.props.option = this.props.option
+        console.log('inside Option class');
         console.log(this.props);
+        // console.log(this.props.jsonArray);
+        // console.log(JSON.parse(this.props.jsonArray));
     }
     render() {
         return (
-            <datalist>
+            {
 
-            </datalist>
+                // JSON.parse(this.props.jsonArray).map((item) => {
+                //     return <option value={item} key={item.id} />
+                // })
+            }
         )
     }
 }
