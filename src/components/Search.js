@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-// import { Option } from './Option';
 import { blankFetch } from '../utils/blankFetch';
 
 export class Search extends Component {
-
     constructor(props) {
         super(props);
 
@@ -28,17 +26,12 @@ export class Search extends Component {
                 throw new Error(`There was an error in the search fetch ${err.message}`);
             });
     }
-    componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps(nextProps)');
-        // console.log(nextProps);
 
-    }
     componentDidMount() {
-        // console.log(this.state.fetchURL);
-        // console.log('component did mount');
+        // Get the initial data
         this.updateData();
-
     }
+
     componentDidUpdate(prevProps, prevState) {
         console.log('componentDidUpdate');
         console.log('prevProps');
@@ -52,29 +45,22 @@ export class Search extends Component {
         }
 
     }
-    // componentWillUpdate(nextProps, nextState) {
-    //     console.log('componentWillUpdate');
-    //     console.log('nextProps');
-    //     console.log(nextProps);
-    //
-    //
-    //     console.log('nextState');
-    //     console.log(nextState);
-    //     console.log(this.state.listType);
-    //
-    //
-    //     if (nextState.listType !== this.state.listType) {
-    //
-    //     }
-    //
-    // }
+
     searchName(event) {
+        // Update the state for getting all of the name properties and update the type of list for the options
         this.setState({ fetchURL: 'http://localhost:8080/api/name/all', listType: 'name' });
+
+        // Clear out the input
+        this.refs.searchInput.value = '';
     }
 
     searchCategory(event) {
+        // Update the state for getting all of the category properties and update the type of list for the options
         this.setState({ fetchURL: 'http://localhost:8080/api/category/all', listType: 'Category' });
-        
+        console.log(this.refs);
+
+        // Clear out the input
+        this.refs.searchInput.value = '';
     }
 
     render() {
@@ -82,9 +68,9 @@ export class Search extends Component {
             <div className='Search'>
                 <button className='searchNames' onClick={this.searchName.bind(this, event)} ref='nameButton'>Names</button>
                 <button className='searchNames' onClick={this.searchCategory.bind(this, event)} ref='categoryButton'>Category</button>
-                <label htmlFor="search">
+                <label htmlFor="searchInput">
                     Search for your API here:
-                    <input id='search' list='api'/>
+                    <input id='searchInput' ref='searchInput' list='api' />
                     <datalist id="api">
                         {console.log('This is inside the Option component ' + this.state.listType)}
                         {
