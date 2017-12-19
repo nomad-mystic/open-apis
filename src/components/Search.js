@@ -74,13 +74,14 @@ export class Search extends Component {
 
     searchCategory(event) {
         this.setState({ fetchURL: 'http://localhost:8080/api/category/all', listType: 'Category' });
+        
     }
 
     render() {
         return (
             <div className='Search'>
-                <button className='searchNames' onClick={this.searchName.bind(this, event)}>Names</button>
-                <button className='searchNames' onClick={this.searchCategory.bind(this, event)}>Category</button>
+                <button className='searchNames' onClick={this.searchName.bind(this, event)} ref='nameButton'>Names</button>
+                <button className='searchNames' onClick={this.searchCategory.bind(this, event)} ref='categoryButton'>Category</button>
                 <label htmlFor="search">
                     Search for your API here:
                     <input id='search' list='api'/>
