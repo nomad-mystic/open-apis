@@ -2,9 +2,10 @@ const fs = require('fs');
 
 let fileToRead = '';
 let fileToWrite = '';
-let field = '';
+let prop = '';
 
 // Find which file to read
+// @example names.json
 for (let arg = 0; arg < process.argv.length; arg++) {
     if (process.argv[arg].includes('--read=')) {
 
@@ -17,6 +18,7 @@ for (let arg = 0; arg < process.argv.length; arg++) {
 }
 
 // Find which file to write
+// @example filteredNames.json
 for (let r = 0; r < process.argv.length; r++) {
 
     if (process.argv[r].includes('--write=')) {
@@ -28,6 +30,16 @@ for (let r = 0; r < process.argv.length; r++) {
     }
 }
 
+// Find which file to write
+// @example filteredNames.json
+for (let r = 0; r < process.argv.length; r++) {
+
+    if (process.argv[r].includes('--prop=')) {
+        prop = process.argv[r].substring(7);
+
+        console.log(prop);
+    }
+}
 
 // Make sure the file exists
 fs.stat(fileToRead, (err, stats) => {
@@ -47,12 +59,11 @@ fs.stat(fileToRead, (err, stats) => {
 
             let newFilteredArray = JSON.parse(data).filter((item) => {
 
-                if (filterArray.indexOf(item.Category) === -1) {
-                    filterArray.push(item.Category);
+                if (filterArray.indexOf(item[prop]) === -1) {
+                    filterArray.push(item[prop]);
 
-                    return item.Category;
+                    return item[prop];
                 }
-
 
             });
 
