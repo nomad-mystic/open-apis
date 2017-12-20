@@ -19,7 +19,7 @@ app.use('/api', router);
 // This is the root of the whole project
 app.get('/', (req, res) => {
 
-    res.send('Hello World');
+    res.send('Hello World!!');
 
 });
 
