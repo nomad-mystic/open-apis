@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import {Search} from "./Search";
-import { Card } from "./Card";
+import { Cards } from "./Cards";
 
 export default class App extends Component {
     constructor(props) {
@@ -14,7 +14,7 @@ export default class App extends Component {
             <div>
                 <Header title='Find Your Open API Here'/>
                 <Search fetchData={[]}/>
-         		<Card/>
+         		<Cards fetchSampleSize={10}/>
             </div>
 
         )

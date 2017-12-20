@@ -63,6 +63,8 @@ export class Search extends Component {
         this.refs.searchInput.value = '';
     }
 
+    // @todo Build the Auth click functions
+
     render() {
         return (
             <div className='Search'>
