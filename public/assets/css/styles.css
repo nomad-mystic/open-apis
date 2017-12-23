@@ -5783,7 +5783,8 @@ table {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 body {
-  font-size: 16px; }
+  font-size: 16px;
+  background: #49c5b6; }
 .container {
   padding-right: 0;
   padding-left: 0; }
@@ -5824,3 +5825,51 @@ header h2 {
 .alphabet .letter p {
       padding: .5em;
       margin: 0 auto; }
+.Cards .l-card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+.Cards .l-card-container .Card {
+    background-color: #ffffff;
+    width: 100%;
+    height: auto;
+    margin: 1% auto;
+    padding: 5%;
+    -webkit-box-shadow: 0 2px 7px 0 #000000;
+            box-shadow: 0 2px 7px 0 #000000; }
+.Cards .l-card-container .Card article > div.API {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: baseline;
+          -ms-flex-align: baseline;
+              align-items: baseline;
+      margin: 1.5% auto; }
+.Cards .l-card-container .Card article > div.API h2 {
+        font-size: 2em; }
+.Cards .l-card-container .Card article > div.API p {
+        font-size: 1.5em; }
+.Cards .l-card-container .Card article > div.auth {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin: 1.5% auto; }
+.Cards .l-card-container .Card article > div.category {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin: 1.5% auto; }
+.Cards .l-card-container .Card article > div.https {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin: 1.5% auto; }
+.Cards .l-card-container .Card article > div.description {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin: 1.5% auto; }

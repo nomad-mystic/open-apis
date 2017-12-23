@@ -1,0 +1,54 @@
+.Cards {
+
+	.l-card-container {
+		display: flex;
+		flex-direction: column;
+
+		.Card {
+			background-color: #ffffff;
+			width: 100%;
+			height: auto;
+			margin: 1% auto;
+			padding: 5%;
+			box-shadow: 0 2px 7px 0 #000000;
+
+			article > div.API {
+				display: flex;
+				align-items: baseline;
+				margin: 1.5% auto;
+
+
+				h2 {
+					font-size: 2em;
+				}
+
+				p {
+					font-size: 1.5em;
+				}
+
+			}
+
+			article > div.auth {
+				display: flex;
+				margin: 1.5% auto;
+			}
+
+			article > div.category {
+				display: flex;
+				margin: 1.5% auto;
+			}
+
+			article > div.https {
+				display: flex;
+				margin: 1.5% auto;
+			}
+			article > div.description {
+				display: flex;
+				margin: 1.5% auto;
+			}
+
+		}
+
+	}
+
+}

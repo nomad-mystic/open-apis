@@ -26,6 +26,10 @@ const Card = ({ info }) => {
 					<h3>HTTPS:</h3>
 					<p>{info.HTTPS}</p>
 				</div>
+				<div className='description'>
+					<h3>Description:</h3>
+					<p>{info.Description}</p>
+				</div>
 				<div className='link'>
 					<h3>Link:</h3>
 					<p>{info.Link}</p>

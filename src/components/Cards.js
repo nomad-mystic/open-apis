@@ -40,9 +40,11 @@ export class Cards extends Component {
 			<div className='Cards'>
 				<section>
 					<main>
-						{this.state.fetchData.map((item) => {
-							return <Card info={item} key={item._id}/>
-						})}
+						<div className='l-card-container'>
+							{this.state.fetchData.map((item) => {
+								return <Card info={item} key={item._id}/>
+							})}
+						</div>
 					</main>
 				</section>
 			</div>
