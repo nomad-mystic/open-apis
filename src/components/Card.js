@@ -30,13 +30,17 @@ const Card = ({ info }) => {
 					<h3>Description:</h3>
 					<p>{info.Description}</p>
 				</div>
-				<div className='link'>
-					<h3>Link:</h3>
-					<p>{info.Link}</p>
-				</div>
-				<div className='view'>
-					<h3>View:</h3>
-					<p>{info.Link}</p>
+				<div className='l-button-container'>
+					<div className='link'>
+						<button className='button'>
+							<a href={info.Link}>Link</a>
+						</button>
+					</div>
+					<div className='view'>
+						<button className='button'>
+							<a href={info.Link}>View</a>
+						</button>
+					</div>
 				</div>
 			</article>
 		</div>

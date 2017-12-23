@@ -42,9 +42,42 @@
 				display: flex;
 				margin: 1.5% auto;
 			}
+
 			article > div.description {
 				display: flex;
 				margin: 1.5% auto;
+			}
+
+			.l-button-container {
+				display: flex;
+				div.link {
+					@include basic-buttons();
+					width: 45%;
+					margin: 0 auto;
+
+					button {
+						width:100%;
+						a {
+							display: block;
+						}
+					}
+
+
+				}
+
+				div.view {
+					@include basic-buttons();
+					width: 45%;
+					margin: 0 auto;
+
+					
+					button {
+						width:100%;
+						a {
+							display: block;
+						}
+					}
+				}
 			}
 
 		}
